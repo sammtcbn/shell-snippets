@@ -6,6 +6,13 @@ function show_date()
   echo
 }
 
+function show_ps()
+{
+  echo ps -aux
+  ps -aux
+  echo
+}
+
 function show_df()
 {
   echo df -h
@@ -22,6 +29,7 @@ function show_path()
 }
 
 show_date
+show_ps
 show_df
 show_path ~/.ros/log
 show_path /boot
