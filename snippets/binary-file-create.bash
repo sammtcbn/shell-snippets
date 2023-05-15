@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 1M , fill 0x00
+dd if=/dev/zero of=image_1M_00.bin bs=1K count=1024
+
 # 2M , fill 0xFF
 tr '\000' '\377' < /dev/zero | dd of=image_2M_FF.bin bs=1K count=2048
 
