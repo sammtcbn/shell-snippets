@@ -2,8 +2,10 @@
 allinterfaces=`ip -o link show | awk -F': ' '{print $2}'`
 #echo ${allinterfaces}
 
-printf '%-12s\t%-17s\n' "Interface"    "MAC"
-printf '%-12s\t%-17s\n' "------------" "-----------------"
+formatStr="%-12s\t%-17s\n"
+
+printf "${formatStr}" "Interface" "MAC"
+printf "${formatStr}" "------------" "-----------------"
 
 for interface in $allinterfaces; do
     #echo ${interface}
@@ -15,6 +17,5 @@ for interface in $allinterfaces; do
     fi
     #echo ${MAC}
 
-    printf '%-12s\t%-17s\n' ${interface} ${MAC}
-
+    printf "${formatStr}" ${interface} ${MAC}
 done
