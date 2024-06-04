@@ -4,7 +4,12 @@ function device_writebyte_zero()
 {
     devicenode=$1
     addr=$2
-    echo ${devicenode} ${addr}
+    #echo ${devicenode} ${addr}
+
+    if [ ! -f ${devicenode} ]; then
+        echo "${devicenode} not found"
+        return
+    fi
 
     # 0x008000 will convert to 0x8000 then as decimal
     echo -n -e "\\x00" | dd of=${devicenode} bs=1 seek=$((${addr})) count=1

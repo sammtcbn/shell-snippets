@@ -4,7 +4,12 @@ function device_writebyte_zero()
 {
     devicenode=$1
     addr=$2
-    echo ${devicenode} ${addr}
+    #echo ${devicenode} ${addr}
+
+    if [ ! -f ${devicenode} ]; then
+        echo "${devicenode} not found"
+        return
+    fi
 
     dd if=/dev/zero of=/tmp/zero.bin bs=1 count=1
 
