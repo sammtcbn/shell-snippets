@@ -6,11 +6,6 @@ function device_writebyte_zero()
     addr=$2
     #echo ${devicenode} ${addr}
 
-    if [ ! -f ${devicenode} ]; then
-        echo "${devicenode} not found"
-        return
-    fi
-
     dd if=/dev/zero of=/tmp/zero.bin bs=1 count=1
 
     # 0x008000 will convert to 0x8000 then as decimal
